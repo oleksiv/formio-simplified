@@ -6,6 +6,7 @@ import NativePromise from 'native-promise-only';
 
 let Camera;
 let webViewCamera = navigator.camera || Camera;
+const submitUrl = window.formSubmitUrl;
 
 // canvas.toBlob polyfill.
 if (!HTMLCanvasElement.prototype.toBlob) {
@@ -57,7 +58,8 @@ export default class FileComponent extends Field {
   init() {
     super.init();
     this.component.storage = 'url';
-    this.component.url = 'save-file.php';
+    console.log(window);
+    this.component.url = window.formSubmitUrl ? window.formSubmitUrl : 'save-file.php';
     webViewCamera = navigator.camera || Camera;
     const fileReaderSupported = (typeof FileReader !== 'undefined');
     const formDataSupported = Boolean(window.FormData);

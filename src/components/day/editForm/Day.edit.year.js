@@ -24,8 +24,9 @@ export default [
     input: true,
     key: 'fields.year.minYear',
     label: 'Minimum Year',
-    placeholder: '1900',
-    tooltip: 'The minimum year that can be entered.'
+    placeholder: new Date().getFullYear(),
+    tooltip: 'The minimum year that can be entered.',
+    defaultValue: new Date().getFullYear(),
   },
   {
     weight: 204,
